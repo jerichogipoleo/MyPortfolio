@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #222428; /* Dark mode background */
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Common background styles */
+.navcontainer {
+  background-color: #222428; /* Dark mode background */
+  color: white;
+}
+
+.navcontent {
+  padding: 1rem 0.05rem;
+}
+
+.homecontainer {
+  background-color: #000000; /* Black background */
+}
+
+.aboutcontainer1,
+.projectscontainer {
+  background-color: #080808; /* Dark gray background */
+}
+
+.bgcolor {
+  background-color: rgba(97, 95, 95, 0.5);
+}
+
+.transition-background {
+  transition: background-image 0.5s ease-in-out; /* Adjust timing as needed */
+}
+
+
+
+

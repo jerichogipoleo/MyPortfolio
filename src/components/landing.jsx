@@ -1,0 +1,50 @@
+import React from "react";
+import { FaFacebook, FaTwitter, FaGithub, FaGoogle } from "react-icons/fa";
+import me from "../images/backgroundmee.png";
+
+const Landing = () => {
+  return (
+    <>
+      <div className="flex flex-row items-center justify-start min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-black text-white">
+        <div className="flex flex-col justify-center w-full lg:w-1/2 lg:pl-">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white">
+            JERICHO GIPOLEO
+          </h1>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl">
+            An aspiring <span className="text-red-600">PROGRAMMER |</span>
+            <br /> based in MANILA, PHILIPPINES
+          </h2>
+          <hr className="my-8 w-40 border-t-2 border-red-600" />
+
+          <ul className="list-none flex items-center space-x-6 md:space-x-12">
+            <li>
+              <a href="/home" className="hover:text-red-600">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="/about" className="hover:text-red-600">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="/projects" className="hover:text-red-600">
+                Projects
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:text-red-600">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="hidden lg:flex justify-center items-center w-1/2">
+          <img src={me} alt="Jericho GIPOLEO" className="max-w-full h-auto" />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Landing;
