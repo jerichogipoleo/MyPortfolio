@@ -3,7 +3,7 @@ import {
   FaFacebook,
   FaInstagram,
   FaGithub,
-  FaGoogle,
+  FaEnvelope,
   FaArrowUp,
 } from "react-icons/fa";
 
@@ -57,7 +57,7 @@ const Footer = () => {
                   href="mailto:gipoleojericho@gmail.com"
                   className="text-white hover:text-red-800"
                 >
-                  <FaGoogle className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
+                  <FaEnvelope className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
                 </a>
               </li>
             </ul>

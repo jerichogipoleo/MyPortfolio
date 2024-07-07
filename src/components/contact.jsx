@@ -9,7 +9,6 @@ import {
   FaPhone,
   FaFacebook,
   FaGithub,
-  FaGoogle,
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -89,7 +88,7 @@ const Contact = () => {
                         href="mailto:gipoleojericho@gmail.com"
                         className="text-white hover:text-red-800"
                       >
-                        <FaGoogle className="text-sm md:text-lg lg:text-2xl cursor-pointer" />
+                        <FaEnvelope className="text-sm md:text-lg lg:text-2xl cursor-pointer" />
                       </a>
                     </li>
                   </ul>

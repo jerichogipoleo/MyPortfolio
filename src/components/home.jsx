@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaFacebook, FaInstagram, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaGithub, FaEnvelope } from "react-icons/fa";
 import me from "../images/backgroundmee.png";
 
 import Nav from "./nav";
@@ -11,14 +11,15 @@ const Home = () => {
     <div className="bg-black">
       <Nav />
       <div className="flex flex-row items-center justify-start min-h-screen py-8 px-4 sm:px-6 lg:px-8 text-white">
-        <div className="flex flex-col justify-center  h-screen w-full lg:w-1/2 lg:pl-">
+        <div className="flex flex-col justify-center h-screen w-full lg:w-1/2 lg:pl-">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white">
             JERICHO GIPOLEO
           </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl lg:ml-4">
             An aspiring <span className="text-red-600">PROGRAMMER |</span>
             <br /> based in MANILA, PHILIPPINES
           </h2>
+
           <hr className="my-8 w-80 border-t-2 border-red-600" />
 
           <ul className="list-none flex items-center space-x-6 md:space-x-12">
@@ -57,7 +58,7 @@ const Home = () => {
                 href="mailto:gipoleojericho@gmail.com"
                 className="text-white hover:text-red-800"
               >
-                <FaGoogle className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
+                <FaEnvelope className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
               </a>
             </li>
           </ul>

@@ -1,5 +1,4 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaGithub, FaGoogle } from "react-icons/fa";
 import me from "../images/backgroundmee.png";
 
 const Landing = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaFacebook, FaTwitter, FaGithub, FaGoogle } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaGithub, FaEnvelope } from "react-icons/fa";
 import jericho from "../images/jericho.png";
 import reactImage from "../images/reactjs.png";
 import mongodbImage from "../images/mongodb.png";
@@ -164,8 +164,7 @@ const About = () => {
                   2020 - 2024
                 </h3>
                 <ul className="list-disc ml-6 text-white leading-tight">
-                  <li>First Honer | Dean’s Lister</li>
-                  <li>Second Honer | Dean’s Lister</li>
+                  <li>Consitent Dean’s List Awardee</li>
                 </ul>
               </li>
               <li className="mb-10 ms-4">
