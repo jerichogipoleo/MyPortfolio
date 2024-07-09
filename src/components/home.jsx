@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaGithub, FaEnvelope } from "react-icons/fa";
 import me from "../images/backgroundmee.png";
-
+import cert1 from "../images/responsive-web-design.png";
 import Nav from "./nav";
 import Footer from "./footer";
 
@@ -20,7 +20,7 @@ const Home = () => {
             <br /> based in MANILA, PHILIPPINES
           </h2>
 
-          <hr className="my-8 w-80 border-t-2 border-red-600" />
+          <hr className="my-8 w-80 border-t-2 border-red-600 mx-auto" />
 
           <ul className="list-none flex items-center space-x-6 md:space-x-12">
             <li>
@@ -68,17 +68,21 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white ml-10">
-          RECENT PROJECTS
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold mb-4 text-white ml-5 md:ml-10">
+          CERTIFICATES
         </h1>
-        <div className="flex items-center justify-center text-center">
-          <img
-            src="https://via.placeholder.com/800x600"
-            alt="Placeholder"
-            className=" object-cover rounded-lg"
-          />
+
+        <div className="flex items-center justify-center">
+          <div className="max-w-screen-lg w-full mx-auto p-4">
+            <img
+              src={cert1}
+              alt="Certificate"
+              className="object-cover rounded-lg shadow-lg max-h-80vh"
+            />
+          </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
