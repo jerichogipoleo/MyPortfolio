@@ -11,7 +11,7 @@ const Home = () => {
 
   const handleScroll = () => {
     const firstFadeThreshold = window.innerHeight / 1.1; // Adjust this value
-    const secondFadeThreshold = window.innerHeight * 0.5; // Adjust this value
+    const secondFadeThreshold = window.innerHeight * 0.3; // Adjust this value
 
     const scrollPosition = window.scrollY;
 
