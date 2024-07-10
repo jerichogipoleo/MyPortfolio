@@ -36,6 +36,34 @@ const Home = () => {
     };
   }, []);
 
+  // role
+  const [text, setText] = useState("");
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const words = ["PROGRAMMER", "FULL STACK DEVELOPER", "UI/UX DESIGNER"];
+    let currentIndex = 0;
+    let timeoutId;
+
+    const typeText = () => {
+      setText(words[currentWordIndex].slice(0, currentIndex));
+      currentIndex++;
+
+      if (currentIndex <= words[currentWordIndex].length) {
+        timeoutId = setTimeout(typeText, 200); // Typing speed
+      } else {
+        timeoutId = setTimeout(() => {
+          setCurrentWordIndex((currentWordIndex + 1) % words.length);
+          currentIndex = 0;
+        }, 1000); // Pause between words
+      }
+    };
+
+    timeoutId = setTimeout(typeText, 200); // Start typing immediately
+
+    return () => clearTimeout(timeoutId);
+  }, [currentWordIndex]);
+
   return (
     <div className="bg-black">
       <Nav />
@@ -49,7 +77,7 @@ const Home = () => {
             JERICHO GIPOLEO
           </h1>
           <h2 className="text-2xl md:text-3xl lg:text-4xl lg:ml-20 font-bold text-gray-400">
-            An aspiring <span className="text-red-600">PROGRAMMER |</span>
+            An aspiring <span className="text-red-600">{text} |</span>
             <br /> based in MANILA, PHILIPPINES
           </h2>
 
