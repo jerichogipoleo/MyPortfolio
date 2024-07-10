@@ -6,16 +6,17 @@ const Landing = () => {
     <>
       <div className="flex flex-row items-center justify-start min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-black text-white">
         <div className="flex flex-col justify-center w-full lg:w-1/2 lg:pl-">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white lg:ml-20">
             JERICHO GIPOLEO
           </h1>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl lg:ml-20 font-bold text-gray-400">
             An aspiring <span className="text-red-600">PROGRAMMER |</span>
             <br /> based in MANILA, PHILIPPINES
           </h2>
-          <hr className="my-8 w-40 border-t-2 border-red-600" />
 
-          <ul className="list-none flex items-center space-x-6 md:space-x-12">
+          <hr className="my-8 w-80 border-t-2 border-red-600  lg:ml-20" />
+
+          <ul className="list-none flex items-center space-x-6 md:space-x-12 lg:ml-20">
             <li>
               <a href="/home" className="hover:text-red-600">
                 Home
