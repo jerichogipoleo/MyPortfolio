@@ -16,20 +16,23 @@ const Footer = () => {
   };
 
   return (
-    <>
-      <footer className="py-6 text-white">
-        <div className="container mx-auto px-4 flex flex-col items-center">
-          <hr className="border-t-2 border-red-600 mb-4 w-full self-start" />
-          <div className="flex items-center justify-between w-full mb-4">
-            <ul className="list-none flex items-center space-x-4">
+    <footer className="py-6 text-white bg-trasnparent">
+      <div className="container mx-auto px-4">
+        <hr className="border-t-2 border-red-600 mb-4 w-full" />
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="text-white text-sm hover:text-red-800 mb-4 md:mb-0 md:mr-4">
+            <a href="/">Jericho Gipoleo</a>
+          </div>
+          <div className="flex items-center">
+            <ul className="list-none flex items-center space-x-4 mb-4 md:mb-0">
               <li>
                 <a
                   href="https://www.facebook.com/jericho.gipoleo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-blue-800"
+                  className="text-white hover:text-red-800 text-sm md:text-lg"
                 >
-                  <FaFacebook className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
+                  <FaFacebook className="text-sm md:text-lg cursor-pointer" />
                 </a>
               </li>
               <li>
@@ -37,9 +40,9 @@ const Footer = () => {
                   href="https://www.instagram.com/ekoverse?igsh=NW1qdmdyd2ozMzds"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-pink-500"
+                  className="text-white hover:text-red-800 text-sm md:text-lg"
                 >
-                  <FaInstagram className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
+                  <FaInstagram className="text-sm md:text-lg cursor-pointer" />
                 </a>
               </li>
               <li>
@@ -47,32 +50,30 @@ const Footer = () => {
                   href="https://github.com/jerichogipoleo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white hover:text-gray-900"
+                  className="text-white hover:text-red-800 text-sm md:text-lg"
                 >
-                  <FaGithub className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
+                  <FaGithub className="text-sm md:text-lg cursor-pointer" />
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:gipoleojericho@gmail.com"
-                  className="text-white hover:text-red-800"
+                  className="text-white hover:text-red-800 text-sm md:text-lg"
                 >
-                  <FaEnvelope className="text-2xl md:text-3xl lg:text-4xl cursor-pointer" />
+                  <FaEnvelope className="text-sm md:text-lg cursor-pointer" />
                 </a>
               </li>
             </ul>
-            <div className="flex items-center flex-col md:flex-row">
-              <div className="text-white text-lg hover:text-red-800 md:text-xl lg:text-2xl mb-2 md:mb-0 md:mr-2">
-                Jericho Gipoleo
-              </div>
-              <div className="text-white text-lg hover:text-red-800 md:text-xl lg:text-2xl cursor-pointer">
-                <FaArrowUp onClick={scrollToTop} />
-              </div>
+            <div className="text-white text-lg hover:text-red-800 cursor-pointer ml-4">
+              <FaArrowUp
+                onClick={scrollToTop}
+                className="text-lg md:text-xl cursor-pointer"
+              />
             </div>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 

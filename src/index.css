@@ -39,7 +39,9 @@
 }
 
 .aboutcontainer1,
-.projectscontainer {
+.projectscontainer,
+.aboutcontainer3
+ {
   background-color: #080808; /* Dark gray background */
 }
 
@@ -53,13 +55,42 @@
 
 
 
-
 .fade-in {
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  animation: fadeInAnimation 1s ease-in forwards;
 }
 
 .fade-out {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease;
+}
+
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+.fade-in-scroll {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.fade-in-scroll.fade-in {
+  opacity: 1;
+}
+
+
+@keyframes fadeInScrollAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
 }

@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useRef, useEffect, useState } from "react";
 import { FaFacebook, FaTwitter, FaGithub, FaEnvelope } from "react-icons/fa";
 import jericho from "../images/jericho.png";
 import reactImage from "../images/reactjs.png";
@@ -11,11 +10,46 @@ import phpimage from "../images/php.png";
 import node from "../images/nodejs.png";
 import tailwind from "../images/tailwind.png";
 import java from "../images/java.png";
+import git from "../images/git.png";
 
 import Nav from "./nav";
 import Footer from "./footer";
 
+const useFadeInOnScroll = (threshold = 0.1) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { threshold }
+    );
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [threshold]);
+
+  return [ref, isVisible];
+};
+
 const About = () => {
+  const [aboutRef, aboutVisible] = useFadeInOnScroll(0.1);
+  const [interestsRef, interestsVisible] = useFadeInOnScroll(0.1);
+  const [skillsRef, skillsVisible] = useFadeInOnScroll(0.1);
+  const [educationRef, educationVisible] = useFadeInOnScroll(0.1);
+  const [experienceRef, experienceVisible] = useFadeInOnScroll(0.1);
+
   const skills = [
     { name: "Reactjs", image: reactImage },
     { name: "MongoDB", image: mongodbImage },
@@ -26,12 +60,18 @@ const About = () => {
     { name: "Nodejs", image: node },
     { name: "Tailwind", image: tailwind },
     { name: "JAVA", image: java },
+    { name: "GIT", image: git },
   ];
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col font-montserrat">
       <Nav />
-      <div className="aboutcontainer1 text-white min-h-screen flex flex-col">
+      <div
+        ref={aboutRef}
+        className={`aboutcontainer1 text-white min-h-screen flex flex-col transition-opacity duration-1000 ${
+          aboutVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="container mx-auto flex-1 p-20 mt-20">
           <h1 className="text-4xl font-bold mb-12 md:mb-20">ABOUT ME</h1>
           <div className="flex flex-col md:flex-row items-center md:items-start p-4">
@@ -122,7 +162,12 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="aboutcontainer2 text-white min-h-screen flex flex-col">
+      <div
+        ref={interestsRef}
+        className={`aboutcontainer2 text-white min-h-screen flex flex-col transition-opacity duration-1000 ${
+          interestsVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="container mx-auto flex-1 p-8 md:p-20 mt-8 md:mt-20">
           <h1 className="text-4xl font-bold mb-12 md:mb-20 text-right">
             SKILLS
@@ -144,7 +189,12 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="aboutcontainer1 text-white min-h-screen flex flex-col">
+      <div
+        ref={skillsRef}
+        className={`aboutcontainer3 text-white min-h-screen flex flex-col transition-opacity duration-1000 ${
+          skillsVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="container mx-auto flex-1 p-20 mt-20">
           <h1 className="text-3xl md:text-4xl font-bold mb- md:mb-10 lg:mb-12">
             EDUCATIONAL BACKGROUND
@@ -200,7 +250,12 @@ const About = () => {
         </div>
       </div>
 
-      <div className="aboutcontainer2 text-white min-h-screen flex flex-col">
+      <div
+        ref={educationRef}
+        className={`aboutcontainer4 text-white min-h-screen flex flex-col transition-opacity duration-1000 ${
+          educationVisible ? "opacity-100" : "opacity-0"
+        }`}
+      >
         <div className="container mx-auto flex-1 p-8 md:p-20 mt-8 md:mt-20">
           <h1 className="text-4xl font-bold mb-12 md:mb-20 text-right">
             EXPERIENCE
