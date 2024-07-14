@@ -12,6 +12,7 @@ import {
 
 const Contact = () => {
   const [fadeIn, setFadeIn] = useState(true);
+  const [submitText, setSubmitText] = useState("SUBMIT");
 
   const handleScroll = () => {
     const fadeThreshold = window.innerHeight / 3; // Adjust this value
@@ -35,13 +36,33 @@ const Contact = () => {
 
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowPopup(true);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "1ba789a3-2837-42b7-af4d-7d0afd1877bb");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    }).then((res) => res.json());
+
+    if (res.success) {
+      setShowPopup(true);
+      setSubmitText("Thank You");
+    }
   };
 
   const closePopup = () => {
     setShowPopup(false);
+    setSubmitText("SUBMIT");
   };
 
   return (
@@ -151,7 +172,7 @@ const Contact = () => {
             <div className="bgcolor p-4 rounded-lg shadow-md">
               <form
                 className="grid grid-cols-1 md:grid-cols-2 gap-4"
-                onSubmit={handleSubmit}
+                onSubmit={onSubmit}
               >
                 <div className="mb-4">
                   <input
@@ -198,7 +219,7 @@ const Contact = () => {
                     className="bg-gray-200 text-black px-6 py-3 rounded-md font-bold hover:bg-red-800 w-36 h-12 text-xs md:text-sm"
                     type="submit"
                   >
-                    SUBMIT
+                    {submitText}
                   </button>
                 </div>
               </form>
@@ -208,12 +229,12 @@ const Contact = () => {
         {showPopup && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="bg-white rounded-lg p-8 text-center w-80 h-32">
-              <p className="mb-4 text-black">Not available</p>
+              <p className="mb-4 text-black">Thank you for your submission!</p>
               <button
                 className="bg-gray-200 text-black px-6 py-2 rounded-md font-bold hover:bg-red-800"
                 onClick={closePopup}
               >
-                OK
+                Close
               </button>
             </div>
           </div>

@@ -63,6 +63,59 @@ const About = () => {
     { name: "GIT", image: git },
   ];
 
+  // intro
+  const [leftText, setLeftText] = useState("");
+  const [rightText, setRightText] = useState("");
+  const [leftWordIndex, setLeftWordIndex] = useState(0);
+  const [rightWordIndex, setRightWordIndex] = useState(0);
+
+  const leftWords = ["IT-MWA Student", "Languages", "Languages", "Languages"];
+  const rightWords = ["Programmer", "React JS", "PHP", "Node JS"];
+
+  useEffect(() => {
+    let leftCurrentIndex = 0;
+    let rightCurrentIndex = 0;
+    let leftTimeoutId;
+    let rightTimeoutId;
+
+    const typeText = () => {
+      // Type left text
+      if (leftCurrentIndex <= leftWords[leftWordIndex].length) {
+        setLeftText(leftWords[leftWordIndex].slice(0, leftCurrentIndex));
+        leftCurrentIndex++;
+      }
+
+      // Type right text
+      if (rightCurrentIndex <= rightWords[rightWordIndex].length) {
+        setRightText(rightWords[rightWordIndex].slice(0, rightCurrentIndex));
+        rightCurrentIndex++;
+      }
+
+      // Schedule next typing
+      if (
+        leftCurrentIndex <= leftWords[leftWordIndex].length ||
+        rightCurrentIndex <= rightWords[rightWordIndex].length
+      ) {
+        leftTimeoutId = setTimeout(typeText, 200); // Typing speed
+      } else {
+        // Pause before switching words
+        setTimeout(() => {
+          setLeftWordIndex((leftWordIndex + 1) % leftWords.length);
+          setRightWordIndex((rightWordIndex + 1) % rightWords.length);
+          leftCurrentIndex = 0;
+          rightCurrentIndex = 0;
+        }, 1000); // Pause between loops
+      }
+    };
+
+    typeText();
+
+    return () => {
+      clearTimeout(leftTimeoutId);
+      clearTimeout(rightTimeoutId);
+    };
+  }, [leftWordIndex, rightWordIndex]);
+
   return (
     <div className="bg-black text-white min-h-screen flex flex-col font-montserrat">
       <Nav />
@@ -83,25 +136,30 @@ const About = () => {
               />
             </div>
             <div className="md:w-2/3 md:pl-4">
-              <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-10 text-red-600">
-                IT-MWA Student | Programmer
-              </h1>
+              <div className="grid grid-cols-2 justify-center gap-4 mb-10">
+                <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-red-600">
+                  {leftText}|
+                </div>
+                <div className="text-2xl md:text-3xl lg:text-5xl font-bold text-red-600">
+                  {rightText}|
+                </div>
+              </div>
 
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-4  text-justify">
                 Hello! My name is Jericho Gipoleo, and I'm a web developer with
                 a passion for creating beautiful and functional web
                 applications. I have experience in various technologies
                 including PHP, React, Node.js, MongoDB, and MySQL. I enjoy
                 solving complex problems and continuously learning new skills.
               </p>
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-4 text-justify">
                 I attended National University and completed an internship at
                 Cornersteel Systems Corporation, where I worked with
                 technologies like Tailwind CSS, PHP, React, Next.js, and more.
                 This experience helped me grow both as a developer and as a
                 person.
               </p>
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-4 text-justify">
                 In my free time, I enjoy exploring new technologies, working on
                 personal projects, and contributing to open-source communities.
                 I am always looking for new challenges and opportunities to
@@ -279,7 +337,7 @@ const About = () => {
                           </button>
                         </div>
                       </div>
-                      <div class="text-white">
+                      <div class="text-white  text-justify">
                         Cornersteel Systems Corporation is a company where I
                         interned as a web developer. During my internship, I
                         learned and explored various technologies such as
@@ -321,7 +379,7 @@ const About = () => {
                           Topserve Services Solutions INC.
                         </div>
                       </div>
-                      <div class="text-white">
+                      <div class="text-white text-justify">
                         During my Senior high immersion, I had the opportunity
                         to work at Topserve Services Solutions INC. Cornersteel.
                         This experience was invaluable as I explored and learned
