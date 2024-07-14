@@ -142,7 +142,8 @@ const About = () => {
                   BSIT-MWA Student
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-600">
-                  {rightText}|
+                  {/* {rightText}| */}
+                  PROGRAMMER
                 </div>
               </div>
 
