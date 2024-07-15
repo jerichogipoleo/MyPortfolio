@@ -18,10 +18,10 @@ const Projects = () => {
     "Sample Project 3",
   ];
   const descriptions = [
-    "Sample project description goes here...",
-    "Sample project 1 description goes here...",
-    "Sample project 2 description goes here...",
-    "Sample project 3 description goes here...",
+    "No Project Images yet please refer to my Github",
+    "No Project Images yet please refer to my Github",
+    "No Project Images yet please refer to my Github",
+    "No Project Images yet please refer to my Github",
   ];
 
   const nextSlide = () => {
