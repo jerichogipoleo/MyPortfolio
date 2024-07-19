@@ -81,7 +81,7 @@ const Home = () => {
             <br /> based in MANILA, PHILIPPINES
           </h2>
 
-          <hr className="my-8 w-80 border-t-2 border-red-600  lg:ml-20" />
+          <hr className="my-8 w-full border-t-2 border-red-600 sm:w-3/4 md:w-2/3 lg:w-80 lg:ml-20" />
 
           <ul className="list-none flex items-center space-x-6 md:space-x-12 lg:ml-20">
             <li>

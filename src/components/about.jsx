@@ -136,15 +136,9 @@ const About = () => {
               />
             </div>
             <div className="md:w-2/3 md:pl-4">
-              <div className="grid grid-cols-2 justify-center gap-4 mb-10">
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-600">
-                  {/* {leftText}| */}
-                  BSIT-MWA Student
-                </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-600">
-                  {/* {rightText}| */}
-                  PROGRAMMER
-                </div>
+              <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-red-600">
+                {/* {leftText}| */}
+                BSIT-MWA Student | PROGRAMMER
               </div>
 
               <p className="text-lg mb-4  text-justify">
