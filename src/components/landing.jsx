@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import me from "../images/backgroundmee.png";
 
 const Landing = () => {
-  // role
+  // Text typing effect
   const [text, setText] = useState("");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
@@ -29,9 +29,37 @@ const Landing = () => {
 
     return () => clearTimeout(timeoutId);
   }, [currentWordIndex]);
+
+  // Fade-in and fade-out effects
+  const [fadeIn, setFadeIn] = useState(true);
+
+  const handleScroll = () => {
+    const fadeThreshold = window.innerHeight / 1.1; // Adjust this value as needed
+
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition < fadeThreshold) {
+      setFadeIn(true);
+    } else {
+      setFadeIn(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <>
-      <div className="flex flex-row items-center justify-start min-h-screen py-8 px-4 sm:px-6 lg:px-8 bg-black text-white">
+    <div className="bg-black text-white">
+      <div
+        className={`flex flex-row items-center justify-start min-h-screen py-8 px-4 sm:px-6 lg:px-8 ${
+          fadeIn ? "fade-in" : "fade-out"
+        }`}
+      >
         <div className="flex flex-col justify-center w-full lg:w-1/2 lg:pl-">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 text-white lg:ml-20">
             JERICHO GIPOLEO
@@ -70,7 +98,7 @@ const Landing = () => {
           <img src={me} alt="Jericho GIPOLEO" className="max-w-full h-auto" />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
