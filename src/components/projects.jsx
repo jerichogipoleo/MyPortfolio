@@ -1,44 +1,35 @@
 import React, { useEffect, useState } from "react";
 import Nav from "./nav";
 import Footer from "./footer";
-import sample from "../images/samplewallpaper.png";
-import sample1 from "../images/samplewallpaper1.png";
-import sample2 from "../images/samplewallpaper2.png";
-import sample3 from "../images/samplewallpaper3.png"; // Added new image
+import daybreak from "../images/Daybreak.png";
+import barangay from "../images/DBarangay.png";
+import synx from "../images/Synx.png";
 
 const Projects = () => {
-  const allImages = [sample, sample1, sample2, sample3]; // Include all images
+  const allImages = [daybreak, barangay, synx];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
 
   // Titles and descriptions corresponding to images
   const titles = [
-    "Sample Project",
-    "Sample Project 1",
-    "Sample Project 2",
-    "Sample Project 3",
+    "Daybreak",
+    "D’Barangay: A Mobile and Web Platforms to Enable Remote Services, Collaboration and Disaster Response",
+    "Synx: Scheduling System",
   ];
   const descriptions = [
-    "No Project Images yet please refer to my Github",
-    "No Project Images yet please refer to my Github",
-    "No Project Images yet please refer to my Github",
-    "No Project Images yet please refer to my Github",
+    "Daybreak is the first website I created and hosted, designed to provide comprehensive information about popular games like Minecraft, Valorant, and more. The platform offers detailed insights, updates, and resources for gamers, delivering a user-friendly experience for enthusiasts to explore and stay informed about their favorite titles",
+    "Your capstone project, A Mobile and Web Platform for Remote Services, Collaboration, and Disaster Response, utilizes the MERN stack for the web application and Flutter for the mobile app. This integrated solution is designed to enhance remote interactions, streamline collaboration, and improve disaster response efforts. By leveraging these technologies, the platform aims to deliver efficient communication tools and effective coordination capabilities for critical situations.",
+    "Synx is a scheduling system developed during our internship to enhance time management and streamline scheduling processes. Built with Next.js for a dynamic and performant web experience, PostgreSQL for robust and scalable database management, and React for a responsive user interface, Synx optimizes scheduling efficiency and supports seamless user interactions.",
   ];
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % allImages.length);
   };
 
-  const visibleImages = [
-    allImages[currentIndex],
-    allImages[(currentIndex + 1) % allImages.length],
-    allImages[(currentIndex + 2) % allImages.length],
-  ];
-
-  const currentImage = visibleImages[0]; // Always take the first image as current
+  const currentImage = allImages[currentIndex];
 
   const handleScroll = () => {
-    const fadeThreshold = window.innerHeight / 1.1; // Adjust this value as needed
+    const fadeThreshold = window.innerHeight / 1.1;
     const scrollPosition = window.scrollY;
 
     if (scrollPosition < fadeThreshold) {
@@ -70,53 +61,36 @@ const Projects = () => {
           </h1>
 
           <div
-            className="bg-black carouselcontainer rounded-lg p-6 mb-6 md:mb-12 flex flex-col md:flex-row transition-background min-h-[50vh] md:min-h-[60vh] lg:min-h-[70vh]"
+            className="relative rounded-lg overflow-hidden flex items-center justify-center transition-background min-h-[50vh] md:min-h-[60vh] lg:min-h-[70vh] group"
             style={{
               backgroundImage: `url(${currentImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            <div className="md:w-1/2 lg:w-1/3 flex flex-col justify-center items-center text-center p-4">
+            <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 hover:opacity-100 transition-opacity">
               <h2 className="text-xl md:text-2xl font-semibold mb-2 text-white">
                 {titles[currentIndex]}
               </h2>
-              <p className="text-sm md:text-base text-white">
+              <p className="text-sm md:text-base text-white text-justify p-32">
                 {descriptions[currentIndex]}
               </p>
             </div>
-            <div className="carouselpics md:w-1/2 lg:w-2/3 mt-4 md:mt-0 flex flex-col justify-center items-center">
-              <div className="w-full flex flex-wrap justify-around items-center">
-                {visibleImages.map((image, index) => (
-                  <div
-                    key={index}
-                    className="w-full md:w-60 h-64 md:h-96 rounded-lg overflow-hidden m-2"
-                    style={{
-                      zIndex: index === 1 ? 1 : 0, // Ensure the cover image is in front
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt={`Project Image ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col md:flex-row justify-center items-center mt-4">
-                <button
-                  onClick={nextSlide}
-                  className="bg-gray-500 hover:bg-red-800 text-white font-bold py-2 px-4 mb-2 md:mb-0 md:mr-2 w-full md:w-48 opacity-75 rounded-lg"
-                >
-                  Next
-                </button>
-                <hr className="mx-2 h-1 w-full md:w-80 border-gray-300 my-2 md:my-0" />
-                <div className="flex items-center">
-                  <h1 className="font-bold text-5xl w-12 text-center">
-                    {(currentIndex + 1).toString().padStart(2, "0")}
-                  </h1>
-                </div>
-              </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-center items-center mt-4">
+            <button
+              onClick={nextSlide}
+              className="bg-gray-500 hover:bg-red-800 text-white font-bold py-2 px-4 mb-2 md:mb-0 md:mr-2 w-full md:w-48 opacity-75 rounded-lg"
+            >
+              Next
+            </button>
+            <hr className="mx-2 h-1 w-full md:w-80 border-gray-300 my-2 md:my-0" />
+            <div className="flex items-center">
+              <h1 className="font-bold text-5xl w-12 text-center">
+                {(currentIndex + 1).toString().padStart(2, "0")}
+              </h1>
             </div>
           </div>
         </div>

@@ -50,11 +50,10 @@
 }
 
 .transition-background {
-  transition: background-image 0.5s ease-in-out; /* Adjust timing as needed */
+  transition: background-image 0.5s ease-in-out; 
 }
 
-
-
+/* fade in and out to all pages */
 .fade-in {
   opacity: 0;
   animation: fadeInAnimation 1s ease-in forwards;
@@ -93,4 +92,20 @@
   100% {
       opacity: 1;
   }
+}
+
+
+
+/* projects */
+/* CSS for the sliding transition */
+.projectscontainer .transition-transform {
+  transition: transform 0.5s ease-out;
+}
+
+.slide-out-left {
+  transform: translateX(-100%);
+}
+
+.slide-in-right {
+  transform: translateX(100%);
 }
