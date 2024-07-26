@@ -18,7 +18,7 @@ const Projects = () => {
   ];
   const descriptions = [
     "Daybreak is the first website I created and hosted, designed to provide comprehensive information about popular games like Minecraft, Valorant, and more. The platform offers detailed insights, updates, and resources for gamers, delivering a user-friendly experience for enthusiasts to explore and stay informed about their favorite titles",
-    "Your capstone project, A Mobile and Web Platform for Remote Services, Collaboration, and Disaster Response, utilizes the MERN stack for the web application and Flutter for the mobile app. This integrated solution is designed to enhance remote interactions, streamline collaboration, and improve disaster response efforts. By leveraging these technologies, the platform aims to deliver efficient communication tools and effective coordination capabilities for critical situations.",
+    "My capstone project, A Mobile and Web Platform for Remote Services, Collaboration, and Disaster Response, utilizes the MERN stack for the web application and Flutter for the mobile app. This integrated solution is designed to enhance remote interactions, streamline collaboration, and improve disaster response efforts. By leveraging these technologies, the platform aims to deliver efficient communication tools and effective coordination capabilities for critical situations.",
     "Synx is a scheduling system developed during our internship to enhance time management and streamline scheduling processes. Built with Next.js for a dynamic and performant web experience, PostgreSQL for robust and scalable database management, and React for a responsive user interface, Synx optimizes scheduling efficiency and supports seamless user interactions.",
   ];
 
